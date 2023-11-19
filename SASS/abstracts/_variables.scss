@@ -1,0 +1,15 @@
+// Définition de variables globales
+$primary-color: #9356DC;
+$secondary-color: #FF79DA;
+$tertiary-color:#99E2D0;
+$black: #000000;
+$darkgrey:#EAEAEA;
+$grey:#F6F6F6;
+
+:root{
+    --font-shrikhand: 'Shrikhand', cursive;
+    --font-roboto: 'Roboto', sans-serif;
+    --primary-color: #{$primary-color};
+    --secondary-color: #{$secondary-color};
+    --tertiary-color: #{$tertiary-color};
+}

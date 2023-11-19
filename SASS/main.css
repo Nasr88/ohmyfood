@@ -1,0 +1,54 @@
+@charset "UTF-8";
+:root {
+  --font-shrikhand: "Shrikhand", cursive;
+  --font-roboto: "Roboto", sans-serif;
+  --primary-color: #9356DC;
+  --secondary-color: #FF79DA;
+  --tertiary-color: #99E2D0;
+}
+
+.header {
+  padding-bottom: 13px;
+  padding-left: 89px;
+  padding-right: 89px;
+  padding-top: 14px;
+}
+.header__title {
+  font-family: var(--font-shrikhand);
+  font-size: 30px;
+  text-align: center;
+  padding-right: 19px;
+  padding-left: 16px;
+}
+
+i.fa-solid.fa-location-dot {
+  color: #000000; /* Utilisation de la variable définie dans -variable.scss */
+}
+
+.section-one {
+  background-color: #EAEAEA;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  box-shadow: inset 0px 2px 4px #c4c4c4;
+}
+.section-one__textinput {
+  border: none;
+  background-color: #EAEAEA;
+}
+
+body {
+  font-family: var(--font-roboto);
+  margin: 0;
+}
+
+h1 {
+  /* Réinitialiser les styles par défaut */
+  margin: 0; /* Annuler les marges par défaut */
+  padding: 0; /* Annuler les espacements internes par défaut */
+  margin-block: 0;
+}
+
+/*# sourceMappingURL=main.css.map */

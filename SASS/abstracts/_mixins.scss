@@ -1,0 +1,4 @@
+//mixin l'ombre sous header
+@mixin header-shadow{
+    box-shadow: inset 0px 2px 4px darken($color: #EAEAEA, $amount: 15%);
+}

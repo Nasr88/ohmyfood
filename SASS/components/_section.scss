@@ -1,0 +1,18 @@
+@import '../abstracts/mixins';
+// Styles spécifiques pour la première section
+.section-one {
+    background-color: $darkgrey;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 17px;
+    @include header-shadow();
+    &__textinput{
+        border:none;
+        background-color: $darkgrey;
+    }
+    
+  }
+
+  
