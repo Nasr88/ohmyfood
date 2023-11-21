@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../abstracts"
+		},
+		{
+			"path": "../base"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../layout"
+		},
+		{
+			"path": "../pages"
+		}
+	]
+}
