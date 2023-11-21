@@ -1,4 +1,13 @@
 //mixin l'ombre sous header
 @mixin header-shadow{
-    box-shadow: inset 0px 2px 4px darken($color: #EAEAEA, $amount: 15%);
+    box-shadow: inset 0px 2px 4px darken($color:$darkgrey, $amount: 15%);
+}
+
+@mixin rectangle-steps-shadow{
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+//mixin la couleur dégradée des bouttons
+@mixin color-gradient{
+    background-image: linear-gradient($secondary-color, $primary-color);
 }

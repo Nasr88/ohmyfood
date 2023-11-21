@@ -1,6 +1,6 @@
 @import '../abstracts/mixins';
 // Styles spécifiques pour la première section
-.section-one {
+.section-location {
     background-color: $darkgrey;
     height: 50px;
     display: flex;
@@ -11,8 +11,69 @@
     &__textinput{
         border:none;
         background-color: $darkgrey;
+        font-size: 16px;
+        font-family: var(--font-roboto);
     }
-    
   }
+  .section-presentation {
+    background-color: $grey;
+    //j'ai définit la hauteur c'est seulement pour la version mobile
+    height: 287px;
+    &__title{
+        padding-top: 39px;
+        margin-left: 42px;
+        margin-right: 58px;
+        padding-bottom: 10px;
+        text-align: center;}
+    &__paragraph{
+        margin-left: 34px ;
+        margin-right: 26px ;
+        margin-bottom: 27px;
+        text-align: center;
+        font-size: 18px;
+        font-family: var(--font-roboto);
+        font-weight: 300;
+    }
+    }
+    .section-functioning{
+        background-color: $white;
+        height: 25rem;
+        &__title{
+            margin-top: 48px;
+            margin-right: 80px;
+            margin-left:20px;
+            margin-bottom: 26px;
+        }
+        &__container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        &__steps{
+            position: relative;
+            width: 20.75rem;
+            height: 4.524rem;
+            margin-left:20px;
+            margin-right: 20px;
+        }
+       
+    }
+    .section-restaurants{
+        background-color: $grey;
+        &__title{
+            padding-top:3.375rem;
+            padding-left: 1.25rem;
+            padding-bottom: 1.625rem;
+        }
+        &__cards{
+            width:21.25rem;
+            height:15.688rem;
+            background-color: $white;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+  
 
   
