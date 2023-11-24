@@ -60,6 +60,7 @@
             padding-top:16px;
             padding-bottom: 12px;
         }
+
     }
     &__image-container{
         position: relative;
@@ -86,7 +87,40 @@
         font-family: var(--font-roboto);
         font-weight: 300;
     }
+  
+
+//animation like:
+    /* Masquer la case à cocher */
+    .heart-checkbox {
+        display: none;
+    }
     
+    /* Styles pour le conteneur */
+    .heart-container {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+    .heart-container img{
+        padding-right: 33px;
+    }
+    
+    /* Masquer l'image pleine par défaut */
+    .filled-heart {
+        display: none;
+    }
+    
+    /* Afficher l'image pleine lorsque la case est cochée */
+    .heart-checkbox:checked + .heart-container .filled-heart {
+        display: inline;
+    }
+    
+    /* Masquer l'image vide lorsque la case est cochée */
+    .heart-checkbox:checked + .heart-container .empty-heart {
+        display: none;
+    }
+  
+      
     
     
 

@@ -37,6 +37,8 @@
     }
     .section-functioning{
         background-color: $white;
+        display: flex;
+        flex-direction: column;
         height: 25rem;
         &__title{
             margin-top: 48px;
@@ -48,7 +50,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1.5rem; 
         }
         &__steps{
             position: relative;
@@ -80,5 +82,5 @@
         }
     }
   
-
+   
   

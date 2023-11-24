@@ -64,6 +64,8 @@ i.fa-solid.fa-location-dot {
 
 .section-functioning {
   background-color: white;
+  display: flex;
+  flex-direction: column;
   height: 25rem;
 }
 .section-functioning__title {
@@ -128,6 +130,14 @@ p {
   margin-block-end: 0;
 }
 
+:root {
+  --font-shrikhand: "Shrikhand", cursive;
+  --font-roboto: "Roboto", sans-serif;
+  --primary-color: #9356DC;
+  --secondary-color: #FF79DA;
+  --tertiary-color: #99E2D0;
+}
+
 .button-gradient {
   height: 50px;
   width: 218px;
@@ -138,6 +148,17 @@ p {
   margin: 0 auto;
   color: white;
   font-size: 16px;
+  padding-left: 0.1%; /* je déclare un padding-left initial */
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+  transition: background-image 0.3s, padding-left 0.3s, box-shadow 0.3s; /* Transition normale pour le déplacement du texte */
+}
+.button-gradient:hover {
+  /* Appliquer lighten() sur le dégradé */
+  background-image: linear-gradient(#ff93e1, #a16be0);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+  transition-delay: 0s, 0.3s, 0s; /* Délai pour la transition de couleur */
+  padding-left: 0.01%; /* Réduit le pourcentage pour un effet déplacement */
+  cursor: pointer; /* curseur main */
 }
 
 .circle {
@@ -223,6 +244,37 @@ p {
   font-size: 17px;
   font-family: var(--font-roboto);
   font-weight: 300;
+}
+
+/* Masquer la case à cocher */
+.heart-checkbox {
+  display: none;
+}
+
+/* Styles pour le conteneur */
+.heart-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.heart-container img {
+  padding-right: 33px;
+}
+
+/* Masquer l'image pleine par défaut */
+.filled-heart {
+  display: none;
+}
+
+/* Afficher l'image pleine lorsque la case est cochée */
+.heart-checkbox:checked + .heart-container .filled-heart {
+  display: inline;
+}
+
+/* Masquer l'image vide lorsque la case est cochée */
+.heart-checkbox:checked + .heart-container .empty-heart {
+  display: none;
 }
 
 .footer {
