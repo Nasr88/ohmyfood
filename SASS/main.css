@@ -10,13 +10,18 @@
 .header {
   padding-bottom: 13px;
   padding-top: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Espace entre les éléments */
+  align-items: center; /* Centrage vertical */
 }
 .header__title {
   font-family: var(--font-shrikhand);
   font-size: 30px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
+  margin: 0 auto;
+}
+.header__icon {
+  padding-left: 17px;
 }
 
 @media (min-width: 768px) {
@@ -111,6 +116,44 @@ i.fa-solid.fa-location-dot {
 .section-restaurants__cards__link {
   text-decoration: none; /*enlever le soulignement*/
   color: inherit; /* Récupère la couleur du texte originale */
+}
+
+/*pour les pages de restaurant*/
+.main-restaurant {
+  background-color: #F6F6F6;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  position: absolute;
+  top: 275px;
+  width: 100%;
+}
+.main-restaurant__title {
+  font-family: var(--font-shrikhand);
+  font-size: 30px;
+}
+
+.menu {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 13px;
+  padding-right: 13px;
+}
+.menu__title {
+  text-transform: uppercase; /*Text en Majuscule*/
+  font-size: 16px;
+  font-family: var(--font-roboto);
+  font-weight: 300;
+  position: relative; /* Pour positionner la bordure */
+  padding-bottom: 5px;
+}
+.menu__title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px; /* Largeur de la bordure inférieure */
+  height: 3px; /* Hauteur de la bordure */
+  background-color: #99E2D0;
 }
 
 /*****************version Desktop*****************/
@@ -379,6 +422,34 @@ p {
   display: none;
 }
 
+.image-restaurant {
+  object-fit: cover;
+  width: 100%;
+  height: 275px;
+  position: absolute;
+}
+
+/*L'entete sous l'image dans les pages restaurants*/
+.title-icon {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 32px;
+  padding-left: 17px;
+  padding-right: 17px;
+}
+
+/*Pour ajuster l'icone coeur */
+.title-icon .heart-container {
+  display: flex;
+  align-items: center;
+}
+
+/*****************version Desktop*****************/
+@media (min-width: 1140.02px) {
+  .image-restaurant {
+    height: 383px;
+  }
+}
 .footer {
   background-color: #353535;
   padding-top: 22px;

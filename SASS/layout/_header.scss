@@ -3,13 +3,18 @@
     // Styles pour l'entête
     padding-bottom:13px;
     padding-top:14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Espace entre les éléments */
+    align-items: center; /* Centrage vertical */
     &__title {
       // Styles pour le titre dans l'en-tête
       font-family: var(--font-shrikhand);
       font-size:30px;
-      text-align:center;
-      display: flex;
-      justify-content: center;
+      margin: 0 auto;
+    }
+    &__icon{
+      padding-left: 17px;
     }
   }
 

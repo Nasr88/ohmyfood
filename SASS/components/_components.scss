@@ -119,6 +119,34 @@
     .heart-checkbox:checked + .heart-container .empty-heart {
         display: none;
     }
+
+
+    .image-restaurant{
+        object-fit: cover;
+        width:100%;
+        height: 275px;
+        position: absolute;
+    }
+    
+    /*L'entete sous l'image dans les pages restaurants*/
+    .title-icon{
+        display:flex;
+        justify-content: space-between;
+        padding-top:32px;
+        padding-left:17px;
+        padding-right: 17px;
+    }
+    /*Pour ajuster l'icone coeur */
+    .title-icon .heart-container{
+        display: flex;
+        align-items: center;
+    }
+     /*****************version Desktop*****************/
+     @media(min-width: 1140.02px){
+        .image-restaurant{
+            height: 383px;
+        }
+     }
   
     
     
