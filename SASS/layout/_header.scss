@@ -2,15 +2,20 @@
 .header {
     // Styles pour l'entête
     padding-bottom:13px;
-    padding-left:89px;
-    padding-right:89px;
     padding-top:14px;
     &__title {
       // Styles pour le titre dans l'en-tête
       font-family: var(--font-shrikhand);
       font-size:30px;
       text-align:center;
-      padding-right: 19px;
-      padding-left: 16px;
+      display: flex;
+      justify-content: center;
     }
   }
+
+  @media (min-width: 768px) {
+    .header {
+      // Styles pour l'entête
+      padding-bottom:30px;
+      padding-top:31.8px;
+  }}

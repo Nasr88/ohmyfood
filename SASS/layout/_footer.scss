@@ -28,6 +28,7 @@
             color: $white; /* Récupère la couleur du texte originale */
         }
         &__onerow{
+            width: 192px;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -35,7 +36,44 @@
         }
         &--fontweight{
             font-weight: 400;
+            width: 130px;
+            display: flex;
+            align-items: center;
         }
         
+    }
+}
+/*****************version Desktop*****************/
+@media(min-width: 1140.02px){
+    .footer{
+        padding-top:30px;
+        padding-bottom: 30px;
+        &__container{
+            flex-direction: row-reverse;
+            gap:16px;
+            height: 54px;
+            align-items: end;
+        }
+        &__links{
+            flex-direction: row;
+            gap:7px;
+        }
+    }
+}
+/****************version tablette*****************/
+@media (min-width: 767.98px) and (max-width: 1140px) {
+    .footer{
+        padding-top:30px;
+        padding-bottom: 30px;
+        &__container{
+            flex-direction: row-reverse;
+            //gap:16px;
+            height: 54px;/*114px - (30px*2)*/
+            align-items: end;
+        }
+        &__links{
+            flex-direction: row;
+            //gap:7px;
+        }
     }
 }
