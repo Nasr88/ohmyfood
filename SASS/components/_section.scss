@@ -124,10 +124,22 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            flex: 8;
+            //width: 100%;
+            transition: width 0.3s, border-radius 0.3s;
+            //position: relative;
+            text-decoration: none;/*enlever le soulignement*/
+            color: inherit; /* Récupère la couleur du texte originale */
+            
+            cursor: pointer;
+            
             &__flat-price{
                 display: flex;
                 align-items: end;
             }
+        }
+        &__link{
+            
         }
 
     }

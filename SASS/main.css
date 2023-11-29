@@ -162,12 +162,16 @@ i.fa-solid.fa-location-dot {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex: 8;
+  transition: width 0.3s, border-radius 0.3s;
+  text-decoration: none; /*enlever le soulignement*/
+  color: inherit; /* Récupère la couleur du texte originale */
+  cursor: pointer;
 }
 .menu__flats-container__flat-price {
   display: flex;
   align-items: end;
 }
-
 /*****************version Desktop*****************/
 @media (min-width: 1140.02px) {
   .section-presentation {
@@ -475,9 +479,47 @@ p {
   padding-bottom: 40px;
 }
 
-/*.conteneur{
-   margin-bottom: 186px;
+.test {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.textuel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 8;
+}
+
+.flat-animation-rectangle {
+  flex: 2;
+  background-color: green;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 15px;
+  margin-top: 17px;
+  /*position:absolute;
+  top: 0;
+  left: 87%;
+  width: 8%;*/
+  display: none;
+}
+
+.toggle-element {
+  display: none;
+}
+
+/*.toggle-element:checked + .menu__flats-container {
+    //width: 80%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: width 0.3s, border-radius 0.3s;
 }*/
+.toggle-element:checked + .flat-animation-rectangle {
+  display: block;
+}
+
 /*****************version Desktop*****************/
 @media (min-width: 1140.02px) {
   .image-restaurant {
