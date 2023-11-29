@@ -126,11 +126,11 @@
             justify-content: space-between;
             flex: 8;
             //width: 100%;
-            transition: width 0.3s, border-radius 0.3s;
+           
             //position: relative;
             text-decoration: none;/*enlever le soulignement*/
             color: inherit; /* Récupère la couleur du texte originale */
-            
+            transition: width 0.3s, border-radius 0.3s;
             cursor: pointer;
             
             &__flat-price{

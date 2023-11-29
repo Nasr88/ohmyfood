@@ -159,21 +159,19 @@
     }
     //l'animation : le rectangle vert qui s'affiche
    .test{
-    width:100%;
+    //width:100%;
     display: flex;
     flex-direction: row;
     
    }
-   .textuel{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+   .menu-link {
+    cursor: pointer;
     flex:8;
-    
-   }
+    display:flex;
+  }
     
     .flat-animation-rectangle{
-        flex:2;
+        flex:0;
         //width:8%;
         background-color: green;
         border-top-right-radius: 15px;
@@ -184,22 +182,27 @@
   top: 0;
   left: 87%;
   width: 8%;*/
-  display:none;
+  //display:none;
   
+  transition: display 5s ease-in-out; /* Transition plus lente */
   //height: -webkit-fill-available;
     }
     .toggle-element {
         display: none;
     }
     
-    /*.toggle-element:checked + .menu__flats-container {
-        //width: 80%;
+    .toggle-element:checked ~ .menu-link .menu__flats-container{
+        /* flex:8;*/
         border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        transition: width 0.3s, border-radius 0.3s;
-    }*/
-    .toggle-element:checked + .flat-animation-rectangle{
-        display: block; 
+             border-bottom-right-radius: 0;
+        
+     
+             
+    }
+    .toggle-element:checked + .menu-link .flat-animation-rectangle{
+        //display: block; 
+        flex: 1; /* Change la valeur de flex lorsqu'il est coché */
+        transition: flex 0.5s ease-in-out; /* Transition de la propriété flex */
     }
      /*****************version Desktop*****************/
      @media(min-width: 1140.02px){

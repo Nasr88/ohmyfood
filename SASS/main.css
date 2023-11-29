@@ -163,9 +163,9 @@ i.fa-solid.fa-location-dot {
   flex-direction: row;
   justify-content: space-between;
   flex: 8;
-  transition: width 0.3s, border-radius 0.3s;
   text-decoration: none; /*enlever le soulignement*/
   color: inherit; /* Récupère la couleur du texte originale */
+  transition: width 0.3s, border-radius 0.3s;
   cursor: pointer;
 }
 .menu__flats-container__flat-price {
@@ -480,20 +480,18 @@ p {
 }
 
 .test {
-  width: 100%;
   display: flex;
   flex-direction: row;
 }
 
-.textuel {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.menu-link {
+  cursor: pointer;
   flex: 8;
+  display: flex;
 }
 
 .flat-animation-rectangle {
-  flex: 2;
+  flex: 0;
   background-color: green;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -503,21 +501,22 @@ p {
   top: 0;
   left: 87%;
   width: 8%;*/
-  display: none;
+  transition: display 5s ease-in-out; /* Transition plus lente */
 }
 
 .toggle-element {
   display: none;
 }
 
-/*.toggle-element:checked + .menu__flats-container {
-    //width: 80%;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    transition: width 0.3s, border-radius 0.3s;
-}*/
-.toggle-element:checked + .flat-animation-rectangle {
-  display: block;
+.toggle-element:checked ~ .menu-link .menu__flats-container {
+  /* flex:8;*/
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.toggle-element:checked + .menu-link .flat-animation-rectangle {
+  flex: 1; /* Change la valeur de flex lorsqu'il est coché */
+  transition: flex 0.5s ease-in-out; /* Transition de la propriété flex */
 }
 
 /*****************version Desktop*****************/
