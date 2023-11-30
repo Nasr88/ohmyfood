@@ -159,51 +159,47 @@
     }
     //l'animation : le rectangle vert qui s'affiche
    .test{
-    //width:100%;
     display: flex;
     flex-direction: row;
     
    }
-   .menu-link {
+    .menu-link {
     cursor: pointer;
-    flex:8;
+    flex:1;
     display:flex;
-  }
+    }
     
     .flat-animation-rectangle{
-        flex:0;
-        //width:8%;
-        background-color: green;
+        background-color:$tertiary-color;
         border-top-right-radius: 15px;
         border-bottom-right-radius:15px; 
-        padding: 15px;
+        padding: 0;
         margin-top: 17px;
-  /*position:absolute;
-  top: 0;
-  left: 87%;
-  width: 8%;*/
-  //display:none;
-  
-  transition: display 5s ease-in-out; /* Transition plus lente */
-  //height: -webkit-fill-available;
+        visibility: hidden;
+        transition: flex 0.5s ease-in-out;
     }
     .toggle-element {
         display: none;
     }
-    
-    .toggle-element:checked ~ .menu-link .menu__flats-container{
-        /* flex:8;*/
-        border-top-right-radius: 0;
-             border-bottom-right-radius: 0;
-        
-     
-             
+    .flat-animation-rectangle i{
+        display:none;
+    }
+    /* Lorsque la case est cochée */
+    .toggle-element:checked + .menu-link .menu__flats-container{
+         border-top-right-radius: 0;
+         border-bottom-right-radius: 0;       
     }
     .toggle-element:checked + .menu-link .flat-animation-rectangle{
-        //display: block; 
-        flex: 1; /* Change la valeur de flex lorsqu'il est coché */
-        transition: flex 0.5s ease-in-out; /* Transition de la propriété flex */
+        flex: 0.2; /* Change la valeur de flex lorsqu'il est coché */
+        visibility: visible;
+        transition: flex 0.5s ease-in-out;
     }
+    
+    .toggle-element:not(:checked) + .menu-link .flat-animation-rectangle {
+        /* Rétablir la transition inverse */
+        visibility: visible;
+    }
+
      /*****************version Desktop*****************/
      @media(min-width: 1140.02px){
         .image-restaurant{

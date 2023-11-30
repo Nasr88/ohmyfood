@@ -124,24 +124,19 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            flex: 8;
-            //width: 100%;
-           
-            //position: relative;
+            width: 100%;
             text-decoration: none;/*enlever le soulignement*/
             color: inherit; /* Récupère la couleur du texte originale */
-            transition: width 0.3s, border-radius 0.3s;
             cursor: pointer;
-            
+            flex:1; /* Prend le reste de l'espace disponible */
+            transition: flex 0.5s ease-in-out; /* Transition sur la propriété flex */
+
             &__flat-price{
                 display: flex;
                 align-items: end;
             }
         }
-        &__link{
-            
-        }
-
+        
     }
   /*****************version Desktop*****************/
     @media(min-width: 1140.02px){
