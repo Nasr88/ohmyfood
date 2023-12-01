@@ -158,56 +158,107 @@
         padding-bottom: 40px;
     }
     //l'animation : le rectangle vert qui s'affiche
-   .test{
-    display: flex;
-    flex-direction: row;
-    
-   }
+  
     .menu-link {
-    cursor: pointer;
-    flex:1;
-    display:flex;
+        cursor: pointer;
+        flex:1;
+        display:flex;
+        border-radius: 15px;
+        background-color: $white;
+        padding: 15px;
+        margin-top: 17px;/*12px + 5px(le padding-bottom)*/
+        height: 42px;
     }
     
-    .flat-animation-rectangle{
-        background-color:$tertiary-color;
-        border-top-right-radius: 15px;
-        border-bottom-right-radius:15px; 
-        padding: 0;
-        margin-top: 17px;
-        visibility: hidden;
-        transition: flex 0.5s ease-in-out;
+    .flat{
+        //width: 500px;
+        border-radius: 15px;
+        background-color: $white;
+        padding: 15px;
+        margin-top: 17px; /* 12px + 5px (le padding-bottom) */
+        height: 39px;
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        
     }
+    .flat-check{
+        margin:-15px;
+        position: absolute;
+        right: -45px; //14px margin right+29px la largeur de l'image
+        transition: right 0.5s;
+    }
+    .flat-price{
+        display:flex;
+        align-items: end;
+    }
+    
     .toggle-element {
         display: none;
     }
-    .flat-animation-rectangle i{
-        display:none;
+    .flat-detail{
+        overflow: hidden ;
+        text-overflow: ellipsis ; /* Les points de suspension (...) */
+       white-space: nowrap ; /* Empêche le texte de passer à la ligne */
     }
+   
     /* Lorsque la case est cochée */
-    .toggle-element:checked + .menu-link .menu__flats-container{
-         border-top-right-radius: 0;
-         border-bottom-right-radius: 0;       
+    .toggle-element:checked + .flat .flat-check {
+        right: 14px;//14px c'est la margin-right
+        transition: right 0.5s;
     }
-    .toggle-element:checked + .menu-link .flat-animation-rectangle{
-        flex: 0.2; /* Change la valeur de flex lorsqu'il est coché */
-        visibility: visible;
-        transition: flex 0.5s ease-in-out;
+    .toggle-element:checked + .flat .flat-price {
+        transform: translateX(-200%);
+        transition: transform 0.5s;
     }
-    
-    .toggle-element:not(:checked) + .menu-link .flat-animation-rectangle {
-        /* Rétablir la transition inverse */
-        visibility: visible;
+    .toggle-element:checked + .flat .flat-detail{
+        width: calc(100% - 90px);//pour faire apparaitre les (...)
     }
 
+    /* Lorsque la case est décochée */
+    .toggle-element:not(checked) + .flat .flat-check {       
+        transition: right 0.5s;     
+    }
+    .toggle-element:not(checked) + .flat .flat-price {
+        transform: translateX(0);
+        transition: transform 0.5s;
+    }
+    
+    /*.toggle-element:checked + .flat .flat-detail{
+        overflow: hidden;
+        text-overflow: ellipsis; /* Les points de suspension (...) */
+       /* white-space: nowrap; /* Empêche le texte de passer à la ligne */
+        
+    /*}*/
      /*****************version Desktop*****************/
      @media(min-width: 1140.02px){
         .image-restaurant{
             height: 383px;
+            //width:100%;
+        }
+
+        
+        .conteneur{
+            display: flex;
+            flex-direction: column;
+            align-items: center;//pour centrer la section main-restaurant
         }
      }
+      /****************version tablette*****************/
+    @media (min-width: 767.98px) and (max-width: 1140px) {
   
-    
+        .image-restaurant{
+            height: 383px;
+            //width:100%;
+        }
+        .conteneur{
+            display: flex;
+            flex-direction: column;
+            align-items: center;//pour centrer la section main-restaurant
+        }
+    }
     
 
 
