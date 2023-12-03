@@ -116,25 +116,25 @@
             height: 3px; /* Hauteur de la bordure */
             background-color:$tertiary-color;
             }
-        &__flats-container{
+        
+       /* &__flats-container{
             
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             width: 100%;
             text-decoration: none;/*enlever le soulignement*/
-            color: inherit; /* Récupère la couleur du texte originale */
-            cursor: pointer;
+            /*color: inherit; /* Récupère la couleur du texte originale */
+            /*cursor: pointer;
             flex:1; /* Prend le reste de l'espace disponible */
-            transition: flex 0.5s ease-in-out; /* Transition sur la propriété flex */
+            /*transition: flex 0.5s ease-in-out; /* Transition sur la propriété flex */
 
-            &__flat-price{
+           /* &__flat-price{
                 display: flex;
                 align-items: end;
                 margin-right: 30px;
             }
-        }
-        
+        }*/
     }
   /*****************version Desktop*****************/
     @media(min-width: 1140.02px){
@@ -238,11 +238,16 @@
     .main-restaurant{
         width:60%;
     }
+    
 }
     
  /*****************version Desktop*****************/
  @media(min-width: 1140.02px){
     .main-restaurant{
-       width:60%; 
+       width:70%; 
+    }
+    .menu{
+        padding-left: 20%;
+        padding-right: 20%;
     }
 }

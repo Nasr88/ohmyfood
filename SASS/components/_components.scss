@@ -226,12 +226,7 @@
         transition: transform 0.5s;
     }
     
-    /*.toggle-element:checked + .flat .flat-detail{
-        overflow: hidden;
-        text-overflow: ellipsis; /* Les points de suspension (...) */
-       /* white-space: nowrap; /* Empêche le texte de passer à la ligne */
-        
-    /*}*/
+    
      /*****************version Desktop*****************/
      @media(min-width: 1140.02px){
         .image-restaurant{
@@ -239,16 +234,19 @@
             //width:100%;
         }
 
-        
         .conteneur{
             display: flex;
             flex-direction: column;
             align-items: center;//pour centrer la section main-restaurant
         }
+        .title-icon{
+            display: flex;
+            justify-content: center;
+            gap:24px;
+        }
      }
       /****************version tablette*****************/
-    @media (min-width: 767.98px) and (max-width: 1140px) {
-  
+    @media (min-width: 767.98px) and (max-width: 1140px) { 
         .image-restaurant{
             height: 383px;
             //width:100%;
@@ -257,6 +255,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;//pour centrer la section main-restaurant
+        }
+        .title-icon{
+            display: flex;
+            justify-content: center;
+            gap:24px;
         }
     }
     
