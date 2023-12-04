@@ -15,3 +15,19 @@
 @mixin botom-shadow{
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
 }
+
+
+@mixin btn-gradient{
+    height: 50px;
+    width: 218px;
+    border-radius: 50px;
+    border: none;
+    @include color-gradient();
+    display: block;
+    margin: 0 auto;/*pour centrer le boutton*/
+    color: $white;
+    font-size: 16px;
+    padding-left: 0.1%; /* je déclare un padding-left initial */
+    @include botom-shadow();
+    transition: background-image 0.3s, padding-left 0.3s, box-shadow 0.3s; /* Transition normale pour le déplacement du texte */
+}

@@ -1,28 +1,28 @@
 @import '../abstracts/_mixins.scss';
 @import '../abstracts/variables';
 
-.button-gradient{
-    height: 50px;
-    width: 218px;
-    border-radius: 50px;
-    border: none;
-    @include color-gradient();
-    display: block;
-    margin: 0 auto;/*pour centrer le boutton*/
-    color: $white;
-    font-size: 16px;
-    padding-left: 0.1%; /* je déclare un padding-left initial */
-    @include botom-shadow();
-    transition: background-image 0.3s, padding-left 0.3s, box-shadow 0.3s; /* Transition normale pour le déplacement du texte */
+.button-pointer{
+    @include btn-gradient;
+    text-decoration: none;/*enlever le soulignement*/
+    display:flex;
+    justify-content: center;
+    align-items: center;
     &:hover {
         /* Appliquer lighten() sur le dégradé */
         background-image: linear-gradient(lighten($secondary-color, 5%), lighten($primary-color, 5%));
         box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
-        
         transition-delay: 0s, 0.3s, 0s; /* Délai pour la transition de couleur */
         padding-left: 0.01%; /* Réduit le pourcentage pour un effet déplacement */
-        cursor: pointer; /* curseur main */
-  
-        
-    }    
+        cursor: pointer; /* curseur main */ 
+    }     
+}
+.button-gradient{
+    @include btn-gradient;
+    &:hover {
+        /* Appliquer lighten() sur le dégradé */
+        background-image: linear-gradient(lighten($secondary-color, 5%), lighten($primary-color, 5%));
+        box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25); 
+        transition-delay: 0s, 0.3s, 0s; /* Délai pour la transition de couleur */
+        padding-left: 0.01%; /* Réduit le pourcentage pour un effet déplacement */          
+}
 }

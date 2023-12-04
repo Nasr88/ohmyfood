@@ -116,25 +116,6 @@
             height: 3px; /* Hauteur de la bordure */
             background-color:$tertiary-color;
             }
-        
-       /* &__flats-container{
-            
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            width: 100%;
-            text-decoration: none;/*enlever le soulignement*/
-            /*color: inherit; /* Récupère la couleur du texte originale */
-            /*cursor: pointer;
-            flex:1; /* Prend le reste de l'espace disponible */
-            /*transition: flex 0.5s ease-in-out; /* Transition sur la propriété flex */
-
-           /* &__flat-price{
-                display: flex;
-                align-items: end;
-                margin-right: 30px;
-            }
-        }*/
     }
   /*****************version Desktop*****************/
     @media(min-width: 1140.02px){
