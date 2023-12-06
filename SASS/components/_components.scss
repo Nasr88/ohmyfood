@@ -1,4 +1,5 @@
 @import '../abstracts/mixins';
+@import '../animations';
 //le petit cercle de composant steps
 .circle{
     position: absolute;
@@ -107,12 +108,13 @@
     
     /* Masquer l'image pleine par défaut */
     .filled-heart {
-        display: none;
+        display: none;   
     }
     
     /* Afficher l'image pleine lorsque la case est cochée */
     .heart-checkbox:checked + .heart-container .filled-heart {
         display: inline;
+        animation: gradually 5s ease forwards; /* Utilisation de l'animation gradually*/
     }
     
     /* Masquer l'image vide lorsque la case est cochée */

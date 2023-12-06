@@ -267,6 +267,8 @@ i.fa-solid.fa-location-dot {
   }
 }
 body {
+  width: 100%;
+  height: 100%;
   font-family: var(--font-roboto);
   margin: 0;
 }
@@ -346,6 +348,34 @@ p {
   padding-left: 0.01%; /* Réduit le pourcentage pour un effet déplacement */
 }
 
+/* Définir les règles de l'animation pour que le coeur se charge progressivement */
+@keyframes gradually {
+  from {
+    /*transform: translateY(-100%); /* Déplace l'image vers le haut (hors de la vue) */
+    opacity: 0; /* L'image est initialement invisible */
+  }
+  to {
+    opacity: 1; /* Afficher l'image avec une transition d'opacité */
+  }
+}
+/* Définir les règles de l'animation pour que le café monte dans la tasse*/
+@keyframes fill {
+  0% {
+    background-position: 0px 140px;
+  }
+  20% {
+    background-position: -450px 100px;
+  }
+  40% {
+    background-position: -900px 50px;
+  }
+  80% {
+    background-position: -1350px -40px;
+  }
+  100% {
+    background-position: 0px 140px;
+  }
+}
 .circle {
   position: absolute;
   width: 24px;
@@ -455,6 +485,7 @@ p {
 /* Afficher l'image pleine lorsque la case est cochée */
 .heart-checkbox:checked + .heart-container .filled-heart {
   display: inline;
+  animation: gradually 5s ease forwards; /* Utilisation de l'animation gradually*/
 }
 
 /* Masquer l'image vide lorsque la case est cochée */
@@ -680,6 +711,90 @@ p {
   }
   .footer__links {
     flex-direction: row;
+  }
+}
+/* Définir les règles de l'animation pour que le coeur se charge progressivement */
+@keyframes gradually {
+  from {
+    /*transform: translateY(-100%); /* Déplace l'image vers le haut (hors de la vue) */
+    opacity: 0; /* L'image est initialement invisible */
+  }
+  to {
+    opacity: 1; /* Afficher l'image avec une transition d'opacité */
+  }
+}
+/* Définir les règles de l'animation pour que le café monte dans la tasse*/
+@keyframes fill {
+  0% {
+    background-position: 0px 140px;
+  }
+  20% {
+    background-position: -450px 100px;
+  }
+  40% {
+    background-position: -900px 50px;
+  }
+  80% {
+    background-position: -1350px -40px;
+  }
+  100% {
+    background-position: 0px 140px;
+  }
+}
+/* Styles pour le loader */
+.loader-content {
+  position: fixed;
+  z-index: 9999; /* Valeur élevée pour placer l'élément au premier plan */
+  top: 0px;
+  right: 0;
+  width: 100%; /* Prend la largeur totale du body */
+  height: 100%; /* Prend la hauteur totale du body */
+  background-image: linear-gradient(#FF79DA, #9356DC);
+}
+
+.cup {
+  height: 80px;
+  width: 100px;
+  border: 9px solid #353535;
+  position: fixed;
+  top: 35%;
+  left: calc(50% - 50px);
+  border-radius: 0px 0px 70px 70px;
+  background: url(../assets/images/coffee.png);
+  background-repeat: repeat-x;
+  background-position: 0px 140px;
+  animation: fill 2.5s infinite;
+}
+
+.handle {
+  height: 30px;
+  width: 20px;
+  background-color: transparent;
+  border: 9px solid #353535;
+  position: fixed;
+  left: calc(50% - 50px + 110px);
+  top: 36%;
+  border-radius: 0px 25px 80px 0px;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 65%;
+  color: #353535;
+  left: calc(50% - 35px);
+}
+
+.loader {
+  animation: hideLoader 3s forwards; /* Animation pour cacher la première page après 3 secondes */
+}
+
+/* Animation pour cacher la première page */
+@keyframes hideLoader {
+  to {
+    display: none; /* Cacher la première page */
   }
 }
 

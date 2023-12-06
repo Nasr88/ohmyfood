@@ -1,0 +1,31 @@
+/* Définir les règles de l'animation pour que le coeur se charge progressivement */
+@keyframes gradually {
+    from {
+      /*transform: translateY(-100%); /* Déplace l'image vers le haut (hors de la vue) */
+      opacity: 0; /* L'image est initialement invisible */
+    }
+    to {
+      
+      opacity: 1; /* Afficher l'image avec une transition d'opacité */
+    }
+  }
+/* Définir les règles de l'animation pour que le café monte dans la tasse*/
+  @keyframes fill{
+    0%{
+      background-position: 0px 140px;
+    }
+    20%{
+      background-position: -450px 100px;
+    }
+    40%{
+
+      background-position: -900px 50px;
+    }
+    80%{
+      background-position: -1350px -40px;
+    }
+    100%{
+      background-position: 0px 140px;
+    }
+
+  }
