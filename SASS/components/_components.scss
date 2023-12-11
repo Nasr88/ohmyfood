@@ -237,15 +237,19 @@
             justify-content: center;
             gap:24px;
         }
-        /* colorer le coeur lors de survol */
-        .empty-heart:hover+ .filled-heart{
-        display: inline;
-        animation: gradually 4s ease; /* Utilisation de l'animation gradually*/
+         /* Animation j'aime */
+         .filled-heart {
+            visibility: hidden;
         }
-        
-        /* Masquer le coeur vide lors de survol */
-        .empty-heart:hover {
-        display: none;
+        .empty-heart{
+        position: absolute;
+        }
+
+        /* Au survol du cœur vide, afficher le cœur rempli avec animation progressive */
+        .heart-container:hover .filled-heart {
+            //opacity: 1;
+            visibility: visible;
+            animation: gradually 2s ease forwards; /* Utilisation de l'animation gradually*/
         }
         /*afficher la coche à droite du plat lors de survol*/
         .flat{
