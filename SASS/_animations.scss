@@ -12,10 +12,10 @@
 /* Définir les règles de l'animation pour que le café monte dans la tasse*/
   @keyframes fill{
     0%{
-      background-position: 0px 140px;
+      background-position: 0px 100px;
     }
     20%{
-      background-position: -450px 100px;
+      background-position: -450px 80px;
     }
     40%{
 
@@ -25,7 +25,15 @@
       background-position: -1350px -40px;
     }
     100%{
-      background-position: 0px 140px;
+      background-position: 0px 100px;
     }
-
+  }
+/* Animation pour faire apparaître progressivement avec fadeIn */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1; /* Animation pour augmenter progressivement l'opacité */
+    }
   }

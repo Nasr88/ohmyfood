@@ -361,10 +361,10 @@ p {
 /* Définir les règles de l'animation pour que le café monte dans la tasse*/
 @keyframes fill {
   0% {
-    background-position: 0px 140px;
+    background-position: 0px 100px;
   }
   20% {
-    background-position: -450px 100px;
+    background-position: -450px 80px;
   }
   40% {
     background-position: -900px 50px;
@@ -373,7 +373,16 @@ p {
     background-position: -1350px -40px;
   }
   100% {
-    background-position: 0px 140px;
+    background-position: 0px 100px;
+  }
+}
+/* Animation pour faire apparaître progressivement avec fadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1; /* Animation pour augmenter progressivement l'opacité */
   }
 }
 .circle {
@@ -478,21 +487,6 @@ p {
 }
 
 /* Masquer l'image pleine par défaut */
-.filled-heart {
-  display: none;
-}
-
-/* Afficher l'image pleine lorsque la case est cochée */
-.heart-checkbox:checked + .heart-container .filled-heart {
-  display: inline;
-  animation: gradually 5s ease forwards; /* Utilisation de l'animation gradually*/
-}
-
-/* Masquer l'image vide lorsque la case est cochée */
-.heart-checkbox:checked + .heart-container .empty-heart {
-  display: none;
-}
-
 .image-restaurant {
   object-fit: cover;
   width: 100%;
@@ -514,14 +508,14 @@ p {
   align-items: center;
 }
 
-/*Fricassé d'escargot*/
+/*"Fricassé d'escargot"*/
 .flat-title {
   font-size: 18px;
   font-family: 500;
   font-family: var(--font-roboto);
 }
 
-/*Au piment d'espelette*/
+/*"Au piment d'espelette"*/
 .flat-description {
   font-size: 15.04px;
   font-family: var(--font-roboto);
@@ -580,29 +574,33 @@ p {
   white-space: nowrap; /* Empêche le texte de passer à la ligne */
 }
 
-/* Lorsque la case est cochée */
-.toggle-element:checked + .flat .flat-check {
-  right: 14px;
-  transition: right 0.5s;
+/*“Entrée”, “Plat” et “Dessert” apparaîent progressivement avec un léger décalage dans le temps*/
+.menu {
+  animation: fadeIn 3s forwards; /* Utilisation de l'animation fadeIn */
 }
 
-.toggle-element:checked + .flat .flat-price {
-  transform: translateX(-200%);
-  transition: transform 0.5s;
+/* Appliquer un délai différent à chaque élément */
+.menu-1 {
+  animation-delay: 0s;
 }
 
-.toggle-element:checked + .flat .flat-detail {
-  width: calc(100% - 90px);
+/* Cacher les éléments suivants jusqu'à ce que le précédent soit visible */
+.menu-2, .menu-3 {
+  opacity: 0;
 }
 
-/* Lorsque la case est décochée */
-.toggle-element:not(checked) + .flat .flat-check {
-  transition: right 0.5s;
+.menu-2 {
+  animation-delay: 0.5s;
 }
 
-.toggle-element:not(checked) + .flat .flat-price {
-  transform: translateX(0);
-  transition: transform 0.5s;
+.menu-3 {
+  animation-delay: 1s;
+}
+
+/* Par défaut */
+.flat .flat-price {
+  transform: translateX(0); /* Annule l'effet de translation par défaut */
+  transition: transform 0.5s; /* Animation de transition par défaut */
 }
 
 /*****************version Desktop*****************/
@@ -620,6 +618,27 @@ p {
     justify-content: center;
     gap: 24px;
   }
+  /* colorer le coeur lors de survol */
+  .empty-heart:hover + .filled-heart {
+    display: inline;
+    animation: gradually 4s ease; /* Utilisation de l'animation gradually*/
+  }
+  /* Masquer le coeur vide lors de survol */
+  .empty-heart:hover {
+    display: none;
+  }
+  /*afficher la coche à droite du plat lors de survol*/
+  .flat {
+    cursor: default;
+  }
+  .flat:hover .flat-check {
+    right: 14px;
+    transition: right 0.5s;
+  }
+  .flat:hover .flat-price {
+    transform: translateX(-200%);
+    transition: transform 0.5s;
+  }
 }
 /****************version tablette*****************/
 @media (min-width: 767.98px) and (max-width: 1140px) {
@@ -635,6 +654,69 @@ p {
     display: flex;
     justify-content: center;
     gap: 24px;
+  }
+  /* Animation j'aime */
+  .filled-heart {
+    visibility: hidden;
+  }
+  .empty-heart {
+    position: absolute;
+  }
+  /* Au survol du cœur vide, afficher le cœur rempli avec animation progressive */
+  .heart-container:hover .filled-heart {
+    visibility: visible;
+    animation: gradually 2s ease forwards; /* Utilisation de l'animation gradually*/
+  }
+  /* Masquer le coeur vide lors de survol */
+  /*.empty-heart:hover {
+      display: none;
+  }*/
+  /*afficher la coche à droite du plat lors de survol*/
+  .flat {
+    cursor: default;
+  }
+  .flat:hover .flat-check {
+    right: 14px;
+    transition: right 0.5s;
+  }
+  .flat:hover .flat-price {
+    transform: translateX(-200%);
+    transition: transform 0.5s;
+  }
+}
+/****************version mobile*****************/
+@media (max-width: 767.98px) {
+  .filled-heart {
+    display: none;
+  }
+  /* Afficher l'image pleine lorsque la case est cochée */
+  .heart-checkbox:checked + .heart-container .filled-heart {
+    display: inline;
+    animation: gradually 2s ease forwards; /* Utilisation de l'animation gradually*/
+  }
+  /* Masquer l'image vide lorsque la case est cochée */
+  .heart-checkbox:checked + .heart-container .empty-heart {
+    display: none;
+  }
+  /* Lorsque la case est cochée */
+  .toggle-element:checked + .flat .flat-check {
+    right: 14px;
+    transition: right 0.5s;
+  }
+  .toggle-element:checked + .flat .flat-price {
+    transform: translateX(-200%);
+    transition: transform 0.5s;
+  }
+  .toggle-element:checked + .flat .flat-detail {
+    width: calc(100% - 90px);
+  }
+  /* Lorsque la case est décochée */
+  .toggle-element:not(checked) + .flat .flat-check {
+    transition: right 0.5s;
+  }
+  .toggle-element:not(checked) + .flat .flat-price {
+    transform: translateX(0);
+    transition: transform 0.5s;
   }
 }
 .footer {
@@ -726,10 +808,10 @@ p {
 /* Définir les règles de l'animation pour que le café monte dans la tasse*/
 @keyframes fill {
   0% {
-    background-position: 0px 140px;
+    background-position: 0px 100px;
   }
   20% {
-    background-position: -450px 100px;
+    background-position: -450px 80px;
   }
   40% {
     background-position: -900px 50px;
@@ -738,7 +820,16 @@ p {
     background-position: -1350px -40px;
   }
   100% {
-    background-position: 0px 140px;
+    background-position: 0px 100px;
+  }
+}
+/* Animation pour faire apparaître progressivement avec fadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1; /* Animation pour augmenter progressivement l'opacité */
   }
 }
 /* Styles pour le loader */
@@ -762,7 +853,7 @@ p {
   border-radius: 0px 0px 70px 70px;
   background: url(../assets/images/coffee.png);
   background-repeat: repeat-x;
-  background-position: 0px 140px;
+  background-position: 0px 100px;
   animation: fill 2.5s infinite;
 }
 
@@ -788,7 +879,7 @@ p {
 }
 
 .loader {
-  animation: hideLoader 3s forwards; /* Animation pour cacher la première page après 3 secondes */
+  animation: hideLoader 3s forwards; /* Animation pour cacher la page chargement après 3 secondes */
 }
 
 /* Animation pour cacher la première page */

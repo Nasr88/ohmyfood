@@ -22,7 +22,7 @@
     background:url(../assets/images/coffee.png);
     //box-shadow: 0px 0px 0px 6px white;
     background-repeat: repeat-x;// l'image de fond se répète uniquement horizontalement
-    background-position: 0px 140px;
+    background-position: 0px 100px;
     animation:fill 2.5s infinite;//fill est le nom de l'animation je la définit dans keyframes
 }
 .handle{
@@ -48,7 +48,7 @@
 }
 
   .loader {
-   animation: hideLoader 3s forwards; /* Animation pour cacher la première page après 3 secondes */
+   animation: hideLoader 3s forwards; /* Animation pour cacher la page chargement après 3 secondes */
   }
   
   /* Animation pour cacher la première page */
