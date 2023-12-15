@@ -1,4 +1,28 @@
-//icone location
+//icon location
 i.fa-solid.fa-location-dot {
-    color: $black; /* Utilisation de la variable définie dans -variable.scss */
-  }
+  color: $black; /* Utilisation de la variable définie dans -variable.scss */
+}
+//icon mobile
+i.fa-mobile-screen-button {
+  color: #7e7e7e;
+}
+//icon list
+i.fa-list-ul{
+  color: #7e7e7e;
+}
+//icon store
+i.fa-store{
+  color: #9356dc;
+}
+
+//icon footer
+i.fa-utensils{
+  color: #ffffff;
+}
+i.fa-handshake-angle {
+  color: #ffffff;
+}
+//icone de retour à la page d'accueil
+i.fa-arrow-left{
+  color: $black;
+}

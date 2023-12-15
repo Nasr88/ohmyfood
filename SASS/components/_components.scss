@@ -7,7 +7,6 @@
     height: 24px;
     border-radius: 12px;
     background-color: $primary-color;
-    /*margin-left:20px;*/
     color:$white;
     display:flex;
     align-items: center;
@@ -59,7 +58,6 @@
             padding-top:16px;
             padding-bottom: 12px;
         }
-
     }
     &__image-container{
         position: relative;
@@ -79,6 +77,11 @@
             justify-content: center;
         }
     }
+    .cardlink{
+        text-decoration: none;/*enlever le soulignement*/
+        color: inherit; /* Récupère la couleur du texte originale */
+        
+    }
     
     }
     .card-city{
@@ -96,19 +99,16 @@
     
     /* Styles pour le conteneur */
     .heart-container {
-        position: relative;
-        display: inline-block;
+        //position: relative;
         cursor: pointer;
+        /*Pour ajuster l'icone coeur */
+        display: flex;
+        align-items: center;
     }
     .heart-container img{
         padding-right: 33px;
     }
-    
-    /* Masquer l'image pleine par défaut */
-    .filled-heart {
-        //display: none;   
-    }
-    
+
     .image-restaurant{
         object-fit: cover;
         width:100%;
@@ -123,15 +123,45 @@
         padding-left:17px;
         padding-right: 17px;
     }
-    /*Pour ajuster l'icone coeur */
-    .title-icon .heart-container{
+   
+    /*bouton commander*/
+    .order{
+        padding-top:40px ;
+        padding-bottom: 40px;
+    }
+    //l'animation : sélecteur de plat
+    /*.menu-link {
+        cursor: pointer;
+        flex:1;
+        display:flex;
+        border-radius: 15px;
+        background-color: $white;
+        padding: 15px;
+        margin-top: 17px;/*12px + 5px(le padding-bottom)*/
+        /*height: 42px;
+    }*/
+    
+    .flat{
+        border-radius: 15px;
+        background-color: $white;
+        padding: 15px;
+        margin-top: 17px; /* 12px + 5px (le padding-bottom) */
+        height: 39px;
         display: flex;
-        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;//pour cacher le contenu qui dépasse les limites du conteneur
+        position: relative;//pour contrôler le positionnement des elements enfants
+        cursor: pointer;
+    }
+    .flat-detail{
+        overflow: hidden ;
+        text-overflow: ellipsis ; /* Les points de suspension (...) */
+        white-space: nowrap ; /* Empêche le texte de passer à la ligne */
     }
     /*"Fricassé d'escargot"*/
     .flat-title{
         font-size: 18px;
-        font-family: 500;
+        font-weight: 500;
         font-family: var(--font-roboto);
     }
     /*"Au piment d'espelette"*/
@@ -140,62 +170,27 @@
         font-family: var(--font-roboto);
         font-weight: 300;
     }
-    /*bouton commander*/
-    .order{
-        padding-top:40px ;
-        padding-bottom: 40px;
-    }
-    //l'animation : le rectangle vert qui s'affiche
-  
-    .menu-link {
-        cursor: pointer;
-        flex:1;
-        display:flex;
-        border-radius: 15px;
-        background-color: $white;
-        padding: 15px;
-        margin-top: 17px;/*12px + 5px(le padding-bottom)*/
-        height: 42px;
-    }
-    
-    .flat{
-        //width: 500px;
-        border-radius: 15px;
-        background-color: $white;
-        padding: 15px;
-        margin-top: 17px; /* 12px + 5px (le padding-bottom) */
-        height: 39px;
-        display: flex;
-        justify-content: space-between;
-        overflow: hidden;
-        position: relative;
-        cursor: pointer;
-    }
-   
-    .flat-check{
-        margin:-15px;
-        position: absolute;
-        right: -45px; //14px margin right+29px la largeur de l'image
-        transition: right 0.5s;
-    }
     .flat-price{
         display:flex;
         align-items: end;
+        transition: transform 0.5s; /* transition par défaut */
     }
-    
+    .flat-check{
+        margin:-15px;
+        position: absolute;
+        right: -46px; //15px margin right+29px la largeur de l'image
+        transition: right 0.5s;//lorsqu'une modification est apportée à la propriété right, cette modification sera animée sur une durée de 0.5 seconde.
+    }
     .toggle-element {
         display: none;
     }
-    .flat-detail{
-        overflow: hidden ;
-        text-overflow: ellipsis ; /* Les points de suspension (...) */
-       white-space: nowrap ; /* Empêche le texte de passer à la ligne */
-    }
+    
+   
    
    
     /*“Entrée”, “Plat” et “Dessert” apparaîent progressivement avec un léger décalage dans le temps*/
     .menu{
-        animation: fadeIn 3s forwards; /* Utilisation de l'animation fadeIn */
+        animation: zoomCenter 0.75s forwards; /* Utilisation de l'animation zoomCenter */
     }
 
     /* Appliquer un délai différent à chaque élément */
@@ -204,28 +199,25 @@
     }
     /* Cacher les éléments suivants jusqu'à ce que le précédent soit visible */
     .menu-2, .menu-3 {
-        opacity: 0;
+       // opacity: 0;
+       transform: scale(0);
      }
   
     .menu-2{
-        animation-delay: 0.5s;
+        animation-delay: 0.9s;
      }
   
     .menu-3{
-        animation-delay: 1s;
+        animation-delay: 1.25s;
     }
-    /* Par défaut */
-    .flat .flat-price {
-    transform: translateX(0); /* Annule l'effet de translation par défaut */
-    transition: transform 0.5s; /* Animation de transition par défaut */
-    }
-    
     
      /*****************version Desktop*****************/
      @media(min-width: 1140.02px){
+        .card{
+            width:calc((100% - 100px)/2);
+        }
         .image-restaurant{
             height: 383px;
-            //width:100%;
         }
         .conteneur{
             display: flex;
@@ -238,20 +230,18 @@
             gap:24px;
         }
          /* Animation j'aime */
-         .filled-heart {
-            visibility: hidden;
+        .filled-heart {
+            visibility: hidden;   
         }
         .empty-heart{
-        position: absolute;
+            position: absolute;
         }
-
         /* Au survol du cœur vide, afficher le cœur rempli avec animation progressive */
         .heart-container:hover .filled-heart {
-            //opacity: 1;
             visibility: visible;
-            animation: gradually 2s ease forwards; /* Utilisation de l'animation gradually*/
+            animation: gradually 2s ease forwards; /* Utilisation de l'animation gradually,ease : transition lente au début et à la fin de l'animation, avec une accélération au milieu*/
         }
-        /*afficher la coche à droite du plat lors de survol*/
+        /*afficher le selecteur du plat lors de survol*/
         .flat{
             cursor: default;
         }
@@ -259,16 +249,15 @@
             right: 14px;//14px c'est la margin-right
             transition: right 0.5s;
         }
-       
         .flat:hover .flat-price {
-            //display: inline;
             transform: translateX(-200%);
-            transition: transform 0.5s;
         }
-
      }
       /****************version tablette*****************/
     @media (min-width: 767.98px) and (max-width: 1140px) { 
+        .card{
+            width:calc((100% - 100px)/2);
+        }
         .image-restaurant{
             height: 383px;
             //width:100%;
@@ -283,9 +272,6 @@
             justify-content: center;
             gap:24px;
         }
-    
-       
-
         /* Animation j'aime */
         .filled-heart {
             visibility: hidden;
@@ -293,24 +279,17 @@
         .empty-heart{
         position: absolute;
         }
-
         /* Au survol du cœur vide, afficher le cœur rempli avec animation progressive */
         .heart-container:hover .filled-heart {
-            //opacity: 1;
             visibility: visible;
             animation: gradually 2s ease forwards; /* Utilisation de l'animation gradually*/
         }
-            
-        /* Masquer le coeur vide lors de survol */
-        /*.empty-heart:hover {
-            display: none;
-        }*/
-            /*afficher la coche à droite du plat lors de survol*/
+        /*afficher la coche à droite du plat lors de survol*/
         .flat{
             cursor: default;
         }
         .flat:hover .flat-check{
-             right: 14px;//14px c'est la margin-right
+            right: 14px;//14px c'est la margin-right
             transition: right 0.5s;
         }
            
@@ -327,7 +306,7 @@
         }
         /* Afficher l'image pleine lorsque la case est cochée */
         .heart-checkbox:checked + .heart-container .filled-heart {
-            display: inline;
+            display: flex;
             animation: gradually 2s ease forwards; /* Utilisation de l'animation gradually*/
         }
 
@@ -342,19 +321,17 @@
     }
     .toggle-element:checked + .flat .flat-price {
         transform: translateX(-200%);
-        transition: transform 0.5s;
     }
     .toggle-element:checked + .flat .flat-detail{
         width: calc(100% - 90px);//pour faire apparaitre les (...)
     }
 
     /* Lorsque la case est décochée */
-    .toggle-element:not(checked) + .flat .flat-check {       
+    .toggle-element:not(checked) + .flat .flat-check {     
         transition: right 0.5s;     
     }
     .toggle-element:not(checked) + .flat .flat-price {
         transform: translateX(0);
-        transition: transform 0.5s;
     }
     }
 

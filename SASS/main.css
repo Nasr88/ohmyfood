@@ -34,6 +34,30 @@ i.fa-solid.fa-location-dot {
   color: #000000; /* Utilisation de la variable définie dans -variable.scss */
 }
 
+i.fa-mobile-screen-button {
+  color: #7e7e7e;
+}
+
+i.fa-list-ul {
+  color: #7e7e7e;
+}
+
+i.fa-store {
+  color: #9356dc;
+}
+
+i.fa-utensils {
+  color: #ffffff;
+}
+
+i.fa-handshake-angle {
+  color: #ffffff;
+}
+
+i.fa-arrow-left {
+  color: #000000;
+}
+
 .section-location {
   background-color: #EAEAEA;
   height: 50px;
@@ -48,6 +72,7 @@ i.fa-solid.fa-location-dot {
   background-color: #EAEAEA;
   font-size: 16px;
   font-family: var(--font-roboto);
+  width: 116px;
 }
 
 .section-presentation {
@@ -112,10 +137,6 @@ i.fa-solid.fa-location-dot {
   display: flex;
   flex-direction: column;
   row-gap: 18px;
-}
-.section-restaurants__cards__link {
-  text-decoration: none; /*enlever le soulignement*/
-  color: inherit; /* Récupère la couleur du texte originale */
 }
 
 /*pour les pages de restaurant*/
@@ -201,8 +222,12 @@ i.fa-solid.fa-location-dot {
     row-gap: 50px;
     column-gap: 100px;
   }
-  .section-restaurants__cards__link {
-    width: calc((100% - 100px) / 2);
+  .main-restaurant {
+    width: 70%;
+  }
+  .menu {
+    padding-left: 20%;
+    padding-right: 20%;
   }
 }
 /****************version tablette*****************/
@@ -249,21 +274,8 @@ i.fa-solid.fa-location-dot {
     row-gap: 50px;
     column-gap: 100px;
   }
-  .section-restaurants__cards__link {
-    width: calc((100% - 100px) / 2);
-  }
   .main-restaurant {
     width: 60%;
-  }
-}
-/*****************version Desktop*****************/
-@media (min-width: 1140.02px) {
-  .main-restaurant {
-    width: 70%;
-  }
-  .menu {
-    padding-left: 20%;
-    padding-right: 20%;
   }
 }
 body {
@@ -351,7 +363,6 @@ p {
 /* Définir les règles de l'animation pour que le coeur se charge progressivement */
 @keyframes gradually {
   from {
-    /*transform: translateY(-100%); /* Déplace l'image vers le haut (hors de la vue) */
     opacity: 0; /* L'image est initialement invisible */
   }
   to {
@@ -376,13 +387,22 @@ p {
     background-position: 0px 100px;
   }
 }
-/* Animation pour faire apparaître progressivement avec fadeIn */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+/*Animation pour faire apparaitre les rubliques entrées, plats et dessert*/
+@keyframes zoomCenter {
+  /* Définition des étapes de l'animation */
+  0% {
+    /* Taille initiale */
+    transform: scale(0);
   }
+  100% {
+    /* Taille agrandie */
+    transform: scale(1);
+  }
+}
+/* Animation pour cacher la première page */
+@keyframes hideLoader {
   to {
-    opacity: 1; /* Animation pour augmenter progressivement l'opacité */
+    display: none; /* Cacher la première page */
   }
 }
 .circle {
@@ -391,7 +411,6 @@ p {
   height: 24px;
   border-radius: 12px;
   background-color: #9356DC;
-  /*margin-left:20px;*/
   color: white;
   display: flex;
   align-items: center;
@@ -463,6 +482,10 @@ p {
   align-items: center;
   justify-content: center;
 }
+.card .cardlink {
+  text-decoration: none; /*enlever le soulignement*/
+  color: inherit; /* Récupère la couleur du texte originale */
+}
 
 .card-city {
   font-size: 17px;
@@ -477,16 +500,16 @@ p {
 
 /* Styles pour le conteneur */
 .heart-container {
-  position: relative;
-  display: inline-block;
   cursor: pointer;
+  /*Pour ajuster l'icone coeur */
+  display: flex;
+  align-items: center;
 }
 
 .heart-container img {
   padding-right: 33px;
 }
 
-/* Masquer l'image pleine par défaut */
 .image-restaurant {
   object-fit: cover;
   width: 100%;
@@ -502,43 +525,22 @@ p {
   padding-right: 17px;
 }
 
-/*Pour ajuster l'icone coeur */
-.title-icon .heart-container {
-  display: flex;
-  align-items: center;
-}
-
-/*"Fricassé d'escargot"*/
-.flat-title {
-  font-size: 18px;
-  font-family: 500;
-  font-family: var(--font-roboto);
-}
-
-/*"Au piment d'espelette"*/
-.flat-description {
-  font-size: 15.04px;
-  font-family: var(--font-roboto);
-  font-weight: 300;
-}
-
 /*bouton commander*/
 .order {
   padding-top: 40px;
   padding-bottom: 40px;
 }
 
-.menu-link {
-  cursor: pointer;
-  flex: 1;
-  display: flex;
-  border-radius: 15px;
-  background-color: white;
-  padding: 15px;
-  margin-top: 17px; /*12px + 5px(le padding-bottom)*/
-  height: 42px;
-}
-
+/*.menu-link {
+    cursor: pointer;
+    flex:1;
+    display:flex;
+    border-radius: 15px;
+    background-color: $white;
+    padding: 15px;
+    margin-top: 17px;/*12px + 5px(le padding-bottom)*/
+/*height: 42px;
+}*/
 .flat {
   border-radius: 15px;
   background-color: white;
@@ -552,31 +554,46 @@ p {
   cursor: pointer;
 }
 
-.flat-check {
-  margin: -15px;
-  position: absolute;
-  right: -45px;
-  transition: right 0.5s;
-}
-
-.flat-price {
-  display: flex;
-  align-items: end;
-}
-
-.toggle-element {
-  display: none;
-}
-
 .flat-detail {
   overflow: hidden;
   text-overflow: ellipsis; /* Les points de suspension (...) */
   white-space: nowrap; /* Empêche le texte de passer à la ligne */
 }
 
+/*"Fricassé d'escargot"*/
+.flat-title {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--font-roboto);
+}
+
+/*"Au piment d'espelette"*/
+.flat-description {
+  font-size: 15.04px;
+  font-family: var(--font-roboto);
+  font-weight: 300;
+}
+
+.flat-price {
+  display: flex;
+  align-items: end;
+  transition: transform 0.5s; /* transition par défaut */
+}
+
+.flat-check {
+  margin: -15px;
+  position: absolute;
+  right: -46px;
+  transition: right 0.5s;
+}
+
+.toggle-element {
+  display: none;
+}
+
 /*“Entrée”, “Plat” et “Dessert” apparaîent progressivement avec un léger décalage dans le temps*/
 .menu {
-  animation: fadeIn 3s forwards; /* Utilisation de l'animation fadeIn */
+  animation: zoomCenter 0.75s forwards; /* Utilisation de l'animation zoomCenter */
 }
 
 /* Appliquer un délai différent à chaque élément */
@@ -586,25 +603,22 @@ p {
 
 /* Cacher les éléments suivants jusqu'à ce que le précédent soit visible */
 .menu-2, .menu-3 {
-  opacity: 0;
+  transform: scale(0);
 }
 
 .menu-2 {
-  animation-delay: 0.5s;
+  animation-delay: 0.9s;
 }
 
 .menu-3 {
-  animation-delay: 1s;
-}
-
-/* Par défaut */
-.flat .flat-price {
-  transform: translateX(0); /* Annule l'effet de translation par défaut */
-  transition: transform 0.5s; /* Animation de transition par défaut */
+  animation-delay: 1.25s;
 }
 
 /*****************version Desktop*****************/
 @media (min-width: 1140.02px) {
+  .card {
+    width: calc((100% - 100px) / 2);
+  }
   .image-restaurant {
     height: 383px;
   }
@@ -628,9 +642,9 @@ p {
   /* Au survol du cœur vide, afficher le cœur rempli avec animation progressive */
   .heart-container:hover .filled-heart {
     visibility: visible;
-    animation: gradually 2s ease forwards; /* Utilisation de l'animation gradually*/
+    animation: gradually 2s ease forwards; /* Utilisation de l'animation gradually,ease : transition lente au début et à la fin de l'animation, avec une accélération au milieu*/
   }
-  /*afficher la coche à droite du plat lors de survol*/
+  /*afficher le selecteur du plat lors de survol*/
   .flat {
     cursor: default;
   }
@@ -640,11 +654,13 @@ p {
   }
   .flat:hover .flat-price {
     transform: translateX(-200%);
-    transition: transform 0.5s;
   }
 }
 /****************version tablette*****************/
 @media (min-width: 767.98px) and (max-width: 1140px) {
+  .card {
+    width: calc((100% - 100px) / 2);
+  }
   .image-restaurant {
     height: 383px;
   }
@@ -670,10 +686,6 @@ p {
     visibility: visible;
     animation: gradually 2s ease forwards; /* Utilisation de l'animation gradually*/
   }
-  /* Masquer le coeur vide lors de survol */
-  /*.empty-heart:hover {
-      display: none;
-  }*/
   /*afficher la coche à droite du plat lors de survol*/
   .flat {
     cursor: default;
@@ -694,7 +706,7 @@ p {
   }
   /* Afficher l'image pleine lorsque la case est cochée */
   .heart-checkbox:checked + .heart-container .filled-heart {
-    display: inline;
+    display: flex;
     animation: gradually 2s ease forwards; /* Utilisation de l'animation gradually*/
   }
   /* Masquer l'image vide lorsque la case est cochée */
@@ -708,7 +720,6 @@ p {
   }
   .toggle-element:checked + .flat .flat-price {
     transform: translateX(-200%);
-    transition: transform 0.5s;
   }
   .toggle-element:checked + .flat .flat-detail {
     width: calc(100% - 90px);
@@ -719,7 +730,6 @@ p {
   }
   .toggle-element:not(checked) + .flat .flat-price {
     transform: translateX(0);
-    transition: transform 0.5s;
   }
 }
 .footer {
@@ -801,7 +811,6 @@ p {
 /* Définir les règles de l'animation pour que le coeur se charge progressivement */
 @keyframes gradually {
   from {
-    /*transform: translateY(-100%); /* Déplace l'image vers le haut (hors de la vue) */
     opacity: 0; /* L'image est initialement invisible */
   }
   to {
@@ -826,13 +835,22 @@ p {
     background-position: 0px 100px;
   }
 }
-/* Animation pour faire apparaître progressivement avec fadeIn */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+/*Animation pour faire apparaitre les rubliques entrées, plats et dessert*/
+@keyframes zoomCenter {
+  /* Définition des étapes de l'animation */
+  0% {
+    /* Taille initiale */
+    transform: scale(0);
   }
+  100% {
+    /* Taille agrandie */
+    transform: scale(1);
+  }
+}
+/* Animation pour cacher la première page */
+@keyframes hideLoader {
   to {
-    opacity: 1; /* Animation pour augmenter progressivement l'opacité */
+    display: none; /* Cacher la première page */
   }
 }
 /* Styles pour le loader */
@@ -852,7 +870,7 @@ p {
   border: 9px solid #353535;
   position: fixed;
   top: 35%;
-  left: calc(50% - 50px);
+  left: calc(50% - 60px);
   border-radius: 0px 0px 70px 70px;
   background: url(../assets/images/coffee.png);
   background-repeat: repeat-x;
@@ -866,30 +884,20 @@ p {
   background-color: transparent;
   border: 9px solid #353535;
   position: fixed;
-  left: calc(50% - 50px + 110px);
+  left: calc(50% - 60px + 110px);
   top: 36%;
   border-radius: 0px 25px 80px 0px;
 }
 
 .loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: fixed;
-  top: 65%;
+  top: 55%;
   color: #353535;
-  left: calc(50% - 35px);
+  left: calc(50% - 50px);
 }
 
 .loader {
-  animation: hideLoader 3s forwards; /* Animation pour cacher la page chargement après 3 secondes */
-}
-
-/* Animation pour cacher la première page */
-@keyframes hideLoader {
-  to {
-    display: none; /* Cacher la première page */
-  }
+  animation: hideLoader 3s forwards; /* Animation pour cacher la page chargement après 3 secondes,forwards pour conserver  la dernière image clé de l'animation (dans cet exemple, un affichage en "none"). */
 }
 
 /*# sourceMappingURL=main.css.map */

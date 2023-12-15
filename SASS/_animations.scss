@@ -1,11 +1,9 @@
 /* Définir les règles de l'animation pour que le coeur se charge progressivement */
 @keyframes gradually {
     from {
-      /*transform: translateY(-100%); /* Déplace l'image vers le haut (hors de la vue) */
       opacity: 0; /* L'image est initialement invisible */
     }
     to {
-      
       opacity: 1; /* Afficher l'image avec une transition d'opacité */
     }
   }
@@ -28,12 +26,24 @@
       background-position: 0px 100px;
     }
   }
-/* Animation pour faire apparaître progressivement avec fadeIn */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
+  /*Animation pour faire apparaitre les rubliques entrées, plats et dessert*/
+  @keyframes zoomCenter {
+    /* Définition des étapes de l'animation */
+    0% {
+      /* Taille initiale */
+      transform: scale(0);
     }
-    to {
-      opacity: 1; /* Animation pour augmenter progressivement l'opacité */
+   
+    100% {
+      /* Taille agrandie */
+      transform: scale(1);
     }
   }
+    /* Animation pour cacher la première page */
+    @keyframes hideLoader {
+      to {
+        display: none; /* Cacher la première page */
+      }
+    }
+  
+  

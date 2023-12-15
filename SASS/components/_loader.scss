@@ -3,7 +3,7 @@
 /* Styles pour le loader */
 
 .loader-content{
-    position:fixed;
+    position:fixed;// l'élément reste toujours à la même position même si l'utilisateur fait défiler la page.
     z-index: 9999; /* Valeur élevée pour placer l'élément au premier plan */
     top: 0px;
     right:0;
@@ -17,7 +17,7 @@
     border:9px solid $greyfooter;
     position: fixed;
     top:35%;
-    left:calc(50% - 50px);//pour centrer le cup
+    left:calc(50% - 60px);//pour centrer le cup
     border-radius:0px 0px 70px 70px;
     background:url(../assets/images/coffee.png);
     //box-shadow: 0px 0px 0px 6px white;
@@ -31,31 +31,21 @@
     background-color: transparent;
     border:9px solid $greyfooter;;
     position: fixed;
-    left: calc((50% - 50px) + 110px);//pour le responsive de handle par rapport à cup
+    left: calc((50% - 60px) + 110px);//pour le responsive de handle par rapport à cup
     top:36%;
     border-radius:0px 25px 80px 0px;
 
 }
 .loading{
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: fixed;
-    top:65%;
+    top:55%;
     color:$greyfooter;
-    left:calc(50% - 35px);//pour centrer le texte
-
+    left:calc(50% - 50px);//pour centrer le texte
 }
-
-  .loader {
-   animation: hideLoader 3s forwards; /* Animation pour cacher la page chargement après 3 secondes */
-  }
+.loader {
+   animation: hideLoader 3s forwards; /* Animation pour cacher la page chargement après 3 secondes,forwards pour conserver  la dernière image clé de l'animation (dans cet exemple, un affichage en "none"). */
+}
   
-  /* Animation pour cacher la première page */
-  @keyframes hideLoader {
-    to {
-      display: none; /* Cacher la première page */
-    }
-  }
+
   
   
