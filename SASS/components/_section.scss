@@ -93,28 +93,7 @@
         }
 
     }
-    .menu{
-        padding-top:40px;
-        padding-left:13px ;
-        padding-right: 13px;
-        &__title{
-            text-transform: uppercase;/*Text en Majuscule*/
-            font-size: 16px;
-            font-family:var(--font-roboto) ;
-            font-weight: 300;
-            position: relative; /* Pour positionner la bordure */
-            padding-bottom:5px;
-        }
-        &__title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px; /* Largeur de la bordure inférieure */
-            height: 3px; /* Hauteur de la bordure */
-            background-color:$tertiary-color;
-            }
-    }
+    
   /*****************version Desktop*****************/
     @media(min-width: 1140.02px){
         .section-presentation {
@@ -164,10 +143,7 @@
         .main-restaurant{
             width:70%; 
          }
-         .menu{
-             padding-left: 20%;
-             padding-right: 20%;
-         }
+        
 }
   /****************version tablette*****************/
   @media (min-width: 767.98px) and (max-width: 1140px)  {

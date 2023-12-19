@@ -153,29 +153,6 @@ i.fa-arrow-left {
   font-size: 30px;
 }
 
-.menu {
-  padding-top: 40px;
-  padding-left: 13px;
-  padding-right: 13px;
-}
-.menu__title {
-  text-transform: uppercase; /*Text en Majuscule*/
-  font-size: 16px;
-  font-family: var(--font-roboto);
-  font-weight: 300;
-  position: relative; /* Pour positionner la bordure */
-  padding-bottom: 5px;
-}
-.menu__title::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 40px; /* Largeur de la bordure inférieure */
-  height: 3px; /* Hauteur de la bordure */
-  background-color: #99E2D0;
-}
-
 /*****************version Desktop*****************/
 @media (min-width: 1140.02px) {
   .section-presentation {
@@ -224,10 +201,6 @@ i.fa-arrow-left {
   }
   .main-restaurant {
     width: 70%;
-  }
-  .menu {
-    padding-left: 20%;
-    padding-right: 20%;
   }
 }
 /****************version tablette*****************/
@@ -372,7 +345,7 @@ p {
 /* Définir les règles de l'animation pour que le café monte dans la tasse*/
 @keyframes fill {
   0% {
-    background-position: 0px 100px;
+    background-position: 0px 80px;
   }
   20% {
     background-position: -450px 80px;
@@ -384,7 +357,7 @@ p {
     background-position: -1350px -40px;
   }
   100% {
-    background-position: 0px 100px;
+    background-position: 0px 80px;
   }
 }
 /*Animation pour faire apparaitre les rubliques entrées, plats et dessert*/
@@ -501,9 +474,9 @@ p {
 /* Styles pour le conteneur */
 .heart-container {
   cursor: pointer;
-  /*Pour ajuster l'icone coeur */
+  /*Pour ajuster l'icone coeur 
   display: flex;
-  align-items: center;
+  align-items: center;*/
 }
 
 .heart-container img {
@@ -531,16 +504,6 @@ p {
   padding-bottom: 40px;
 }
 
-/*.menu-link {
-    cursor: pointer;
-    flex:1;
-    display:flex;
-    border-radius: 15px;
-    background-color: $white;
-    padding: 15px;
-    margin-top: 17px;/*12px + 5px(le padding-bottom)*/
-/*height: 42px;
-}*/
 .flat {
   border-radius: 15px;
   background-color: white;
@@ -557,7 +520,8 @@ p {
 .flat-detail {
   overflow: hidden;
   text-overflow: ellipsis; /* Les points de suspension (...) */
-  white-space: nowrap; /* Empêche le texte de passer à la ligne */
+  display: flex;
+  flex-direction: column;
 }
 
 /*"Fricassé d'escargot"*/
@@ -565,6 +529,9 @@ p {
   font-size: 18px;
   font-weight: 500;
   font-family: var(--font-roboto);
+  overflow: hidden;
+  white-space: nowrap; /* Empêche le texte de passer à la ligne */
+  text-overflow: ellipsis; /* Les points de suspension (...) */
 }
 
 /*"Au piment d'espelette"*/
@@ -572,6 +539,9 @@ p {
   font-size: 15.04px;
   font-family: var(--font-roboto);
   font-weight: 300;
+  overflow: hidden;
+  white-space: nowrap; /* Empêche le texte de passer à la ligne */
+  text-overflow: ellipsis; /* Les points de suspension (...) */
 }
 
 .flat-price {
@@ -589,6 +559,29 @@ p {
 
 .toggle-element {
   display: none;
+}
+
+.menu {
+  padding-top: 40px;
+  padding-left: 13px;
+  padding-right: 13px;
+}
+.menu__title {
+  text-transform: uppercase; /*Text en Majuscule*/
+  font-size: 16px;
+  font-family: var(--font-roboto);
+  font-weight: 300;
+  position: relative; /* Pour positionner la bordure */
+  padding-bottom: 5px;
+}
+.menu__title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px; /* Largeur de la bordure inférieure */
+  height: 3px; /* Hauteur de la bordure */
+  background-color: #99E2D0;
 }
 
 /*“Entrée”, “Plat” et “Dessert” apparaîent progressivement avec un léger décalage dans le temps*/
@@ -614,46 +607,37 @@ p {
   animation-delay: 1.25s;
 }
 
-/*****************version Desktop*****************/
-@media (min-width: 1140.02px) {
-  .card {
-    width: calc((100% - 100px) / 2);
-  }
-  .image-restaurant {
-    height: 383px;
-  }
-  .conteneur {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .title-icon {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-  }
-  /* Animation j'aime */
+/****************version mobile*****************/
+@media (max-width: 767.98px) {
   .filled-heart {
-    visibility: hidden;
+    display: none;
   }
-  .empty-heart {
-    position: absolute;
+  /* Afficher l'image pleine lorsque la case est cochée */
+  .heart-checkbox:checked + .heart-container .filled-heart {
+    display: flex;
+    animation: gradually 2s ease forwards; /* Utilisation de l'animation gradually*/
   }
-  /* Au survol du cœur vide, afficher le cœur rempli avec animation progressive */
-  .heart-container:hover .filled-heart {
-    visibility: visible;
-    animation: gradually 2s ease forwards; /* Utilisation de l'animation gradually,ease : transition lente au début et à la fin de l'animation, avec une accélération au milieu*/
+  /* Masquer l'image vide lorsque la case est cochée */
+  .heart-checkbox:checked + .heart-container .empty-heart {
+    display: none;
   }
-  /*afficher le selecteur du plat lors de survol*/
-  .flat {
-    cursor: default;
-  }
-  .flat:hover .flat-check {
+  /* Lorsque la case est cochée */
+  .toggle-element:checked + .flat .flat-check {
     right: 14px;
     transition: right 0.5s;
   }
-  .flat:hover .flat-price {
+  .toggle-element:checked + .flat .flat-price {
     transform: translateX(-200%);
+  }
+  .toggle-element:checked + .flat .flat-detail {
+    width: calc(100% - 90px);
+  }
+  /* Lorsque la case est décochée */
+  .toggle-element:not(checked) + .flat .flat-check {
+    transition: right 0.5s;
+  }
+  .toggle-element:not(checked) + .flat .flat-price {
+    transform: translateX(0);
   }
 }
 /****************version tablette*****************/
@@ -699,37 +683,50 @@ p {
     transition: transform 0.5s;
   }
 }
-/****************version mobile*****************/
-@media (max-width: 767.98px) {
-  .filled-heart {
-    display: none;
+/*****************version Desktop*****************/
+@media (min-width: 1140.02px) {
+  .card {
+    width: calc((100% - 100px) / 2);
   }
-  /* Afficher l'image pleine lorsque la case est cochée */
-  .heart-checkbox:checked + .heart-container .filled-heart {
+  .image-restaurant {
+    height: 383px;
+  }
+  .conteneur {
     display: flex;
-    animation: gradually 2s ease forwards; /* Utilisation de l'animation gradually*/
+    flex-direction: column;
+    align-items: center;
   }
-  /* Masquer l'image vide lorsque la case est cochée */
-  .heart-checkbox:checked + .heart-container .empty-heart {
-    display: none;
+  .title-icon {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
   }
-  /* Lorsque la case est cochée */
-  .toggle-element:checked + .flat .flat-check {
+  /* Animation j'aime */
+  .filled-heart {
+    visibility: hidden;
+  }
+  .empty-heart {
+    position: absolute;
+  }
+  /* Au survol du cœur vide, afficher le cœur rempli avec animation progressive */
+  .heart-container:hover .filled-heart {
+    visibility: visible;
+    animation: gradually 2s ease forwards; /* Utilisation de l'animation gradually,ease : transition lente au début et à la fin de l'animation, avec une accélération au milieu*/
+  }
+  /*afficher le selecteur du plat lors de survol*/
+  .flat {
+    cursor: default;
+  }
+  .flat:hover .flat-check {
     right: 14px;
     transition: right 0.5s;
   }
-  .toggle-element:checked + .flat .flat-price {
+  .flat:hover .flat-price {
     transform: translateX(-200%);
   }
-  .toggle-element:checked + .flat .flat-detail {
-    width: calc(100% - 90px);
-  }
-  /* Lorsque la case est décochée */
-  .toggle-element:not(checked) + .flat .flat-check {
-    transition: right 0.5s;
-  }
-  .toggle-element:not(checked) + .flat .flat-price {
-    transform: translateX(0);
+  .menu {
+    padding-left: 20%;
+    padding-right: 20%;
   }
 }
 .footer {
@@ -820,7 +817,7 @@ p {
 /* Définir les règles de l'animation pour que le café monte dans la tasse*/
 @keyframes fill {
   0% {
-    background-position: 0px 100px;
+    background-position: 0px 80px;
   }
   20% {
     background-position: -450px 80px;
@@ -832,7 +829,7 @@ p {
     background-position: -1350px -40px;
   }
   100% {
-    background-position: 0px 100px;
+    background-position: 0px 80px;
   }
 }
 /*Animation pour faire apparaitre les rubliques entrées, plats et dessert*/
@@ -874,7 +871,7 @@ p {
   border-radius: 0px 0px 70px 70px;
   background: url(../assets/images/coffee.png);
   background-repeat: repeat-x;
-  background-position: 0px 100px;
+  background-position: 0px 80px;
   animation: fill 2.5s infinite;
 }
 
@@ -897,7 +894,7 @@ p {
 }
 
 .loader {
-  animation: hideLoader 3s forwards; /* Animation pour cacher la page chargement après 3 secondes,forwards pour conserver  la dernière image clé de l'animation (dans cet exemple, un affichage en "none"). */
+  animation: hideLoader 3s forwards; /* Animation pour cacher la page chargement après 3 secondes, forwards: l'animation maintient son état final une fois qu'elle est terminée*/
 }
 
 /*# sourceMappingURL=main.css.map */

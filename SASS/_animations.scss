@@ -10,7 +10,7 @@
 /* Définir les règles de l'animation pour que le café monte dans la tasse*/
   @keyframes fill{
     0%{
-      background-position: 0px 100px;
+      background-position: 0px 80px;
     }
     20%{
       background-position: -450px 80px;
@@ -23,7 +23,7 @@
       background-position: -1350px -40px;
     }
     100%{
-      background-position: 0px 100px;
+      background-position: 0px 80px;
     }
   }
   /*Animation pour faire apparaitre les rubliques entrées, plats et dessert*/

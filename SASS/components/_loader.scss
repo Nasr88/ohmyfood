@@ -22,7 +22,7 @@
     background:url(../assets/images/coffee.png);
     //box-shadow: 0px 0px 0px 6px white;
     background-repeat: repeat-x;// l'image de fond se répète uniquement horizontalement
-    background-position: 0px 100px;
+    background-position: 0px 80px;
     animation:fill 2.5s infinite;//fill est le nom de l'animation je la définit dans keyframes
 }
 .handle{
@@ -43,7 +43,7 @@
     left:calc(50% - 50px);//pour centrer le texte
 }
 .loader {
-   animation: hideLoader 3s forwards; /* Animation pour cacher la page chargement après 3 secondes,forwards pour conserver  la dernière image clé de l'animation (dans cet exemple, un affichage en "none"). */
+   animation: hideLoader 3s forwards; /* Animation pour cacher la page chargement après 3 secondes, forwards: l'animation maintient son état final une fois qu'elle est terminée*/
 }
   
 
