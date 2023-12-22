@@ -29,5 +29,5 @@
     font-size: 16px;
     padding-left: 0.1%; /* je déclare un padding-left initial */
     @include botom-shadow();
-    transition: background-image 0.3s, padding-left 0.3s, box-shadow 0.3s; /* Transition normale pour le déplacement du texte */
+    transition: background-image 0.5s, box-shadow 0.5s; /* Transition normale pour le déplacement du texte */
 }

@@ -11,8 +11,6 @@
         /* Appliquer lighten() sur le dégradé */
         background-image: linear-gradient(lighten($secondary-color, 5%), lighten($primary-color, 5%));
         box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
-        transition-delay: 0s, 0.3s, 0s; /* Délai pour la transition de couleur */
-        padding-left: 0.01%; /* Réduit le pourcentage pour un effet déplacement */
         cursor: pointer; /* curseur main */ 
     }     
 }
@@ -22,7 +20,5 @@
         /* Appliquer lighten() sur le dégradé */
         background-image: linear-gradient(lighten($secondary-color, 5%), lighten($primary-color, 5%));
         box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25); 
-        transition-delay: 0s, 0.3s, 0s; /* Délai pour la transition de couleur */
-        padding-left: 0.01%; /* Réduit le pourcentage pour un effet déplacement */          
 }
 }

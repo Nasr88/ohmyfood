@@ -91,7 +91,7 @@
     }
   
 
-//animation like:
+//////////animation like://////////////////////
     /* Masquer la case à cocher */
     .heart-checkbox {
         display: none;
@@ -100,14 +100,13 @@
     /* Styles pour le conteneur */
     .heart-container {
         cursor: pointer;
-        /*Pour ajuster l'icone coeur 
-        display: flex;
-        align-items: center;*/
+        display:flex;
+        align-items: center;
     }
     .heart-container img{
         padding-right: 33px;
     }
-
+///////////////////////////////////////////////
     .image-restaurant{
         object-fit: cover;//s'adapter à son conteneur en conservant ses proportions.
         width:100%;
@@ -128,7 +127,10 @@
         padding-top:40px ;
         padding-bottom: 40px;
     }
-    
+ ////////Animation sélecteur de plat///////
+    .toggle-element {
+        display: none;
+    }
     .flat{
         border-radius: 15px;
         background-color: $white;
@@ -177,9 +179,7 @@
         right: -46px; //15px margin right+29px la largeur de l'image
         transition: right 0.5s;//lorsqu'une modification est apportée à la propriété right, cette modification sera animée sur une durée de 0.5 seconde.
     }
-    .toggle-element {
-        display: none;
-    }
+    
     
     .menu{
         padding-top:40px;
@@ -216,7 +216,6 @@
     }
     /* Cacher les éléments suivants jusqu'à ce que le précédent soit visible */
     .menu-2, .menu-3 {
-       // opacity: 0;
        transform: scale(0);
      }
   
@@ -243,6 +242,8 @@
         .heart-checkbox:checked + .heart-container .empty-heart {
             display: none;
         }
+    ///////////////////////////////////////
+    //////////// SELECTEUR DE PLAT//////////
          /* Lorsque la case est cochée */
     .toggle-element:checked + .flat .flat-check {
         right: 14px;//14px c'est la margin-right

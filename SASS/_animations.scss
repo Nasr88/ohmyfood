@@ -7,16 +7,16 @@
       opacity: 1; /* Afficher l'image avec une transition d'opacité */
     }
   }
+
 /* Définir les règles de l'animation pour que le café monte dans la tasse*/
   @keyframes fill{
     0%{
       background-position: 0px 80px;
     }
     20%{
-      background-position: -450px 80px;
+      background-position: -450px 80px; 
     }
     40%{
-
       background-position: -900px 50px;
     }
     80%{
@@ -42,7 +42,7 @@
     /* Animation pour cacher la première page */
     @keyframes hideLoader {
       to {
-        display: none; /* Cacher la première page */
+        display: none; /* Cacher la page loader*/
       }
     }
   

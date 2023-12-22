@@ -296,7 +296,7 @@ p {
   font-size: 16px;
   padding-left: 0.1%; /* je déclare un padding-left initial */
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
-  transition: background-image 0.3s, padding-left 0.3s, box-shadow 0.3s; /* Transition normale pour le déplacement du texte */
+  transition: background-image 0.5s, box-shadow 0.5s; /* Transition normale pour le déplacement du texte */
   text-decoration: none; /*enlever le soulignement*/
   display: flex;
   justify-content: center;
@@ -306,8 +306,6 @@ p {
   /* Appliquer lighten() sur le dégradé */
   background-image: linear-gradient(#ff93e1, #a16be0);
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
-  transition-delay: 0s, 0.3s, 0s; /* Délai pour la transition de couleur */
-  padding-left: 0.01%; /* Réduit le pourcentage pour un effet déplacement */
   cursor: pointer; /* curseur main */
 }
 
@@ -323,14 +321,12 @@ p {
   font-size: 16px;
   padding-left: 0.1%; /* je déclare un padding-left initial */
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
-  transition: background-image 0.3s, padding-left 0.3s, box-shadow 0.3s; /* Transition normale pour le déplacement du texte */
+  transition: background-image 0.5s, box-shadow 0.5s; /* Transition normale pour le déplacement du texte */
 }
 .button-gradient:hover {
   /* Appliquer lighten() sur le dégradé */
   background-image: linear-gradient(#ff93e1, #a16be0);
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
-  transition-delay: 0s, 0.3s, 0s; /* Délai pour la transition de couleur */
-  padding-left: 0.01%; /* Réduit le pourcentage pour un effet déplacement */
 }
 
 /* Définir les règles de l'animation pour que le coeur se charge progressivement */
@@ -375,7 +371,7 @@ p {
 /* Animation pour cacher la première page */
 @keyframes hideLoader {
   to {
-    display: none; /* Cacher la première page */
+    display: none; /* Cacher la page loader*/
   }
 }
 .circle {
@@ -474,9 +470,8 @@ p {
 /* Styles pour le conteneur */
 .heart-container {
   cursor: pointer;
-  /*Pour ajuster l'icone coeur 
   display: flex;
-  align-items: center;*/
+  align-items: center;
 }
 
 .heart-container img {
@@ -502,6 +497,10 @@ p {
 .order {
   padding-top: 40px;
   padding-bottom: 40px;
+}
+
+.toggle-element {
+  display: none;
 }
 
 .flat {
@@ -555,10 +554,6 @@ p {
   position: absolute;
   right: -46px;
   transition: right 0.5s;
-}
-
-.toggle-element {
-  display: none;
 }
 
 .menu {
@@ -847,7 +842,7 @@ p {
 /* Animation pour cacher la première page */
 @keyframes hideLoader {
   to {
-    display: none; /* Cacher la première page */
+    display: none; /* Cacher la page loader*/
   }
 }
 /* Styles pour le loader */
@@ -888,7 +883,7 @@ p {
 
 .loading {
   position: fixed;
-  top: 55%;
+  top: 60%;
   color: #353535;
   left: calc(50% - 50px);
 }
