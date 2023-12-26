@@ -10,6 +10,8 @@
         font-family: var(--font-shrikhand);
         color: $white;
         font-weight: 400;
+        display:flex;
+        align-items: end;
     }
     &__container{
         display: flex;
@@ -52,11 +54,12 @@
             flex-direction: row-reverse;
             gap:16px;
             height: 54px;
-            align-items: end;
+            //align-items: end;
         }
         &__links{
             flex-direction: row;
             gap:7px;
+            align-items: end;
         }
     }
 }
@@ -65,15 +68,16 @@
     .footer{
         padding-top:30px;
         padding-bottom: 30px;
+        &__title{
+            font-size: 14px;
+        }
         &__container{
             flex-direction: row-reverse;
-            //gap:16px;
             height: 54px;/*114px - (30px*2)*/
-            align-items: end;
         }
         &__links{
             flex-direction: row;
-            //gap:7px;
+            align-items: end;
         }
     }
 }

@@ -258,7 +258,7 @@ body {
   margin: 0;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   /* Réinitialiser les styles par défaut */
   margin: 0; /* Annuler les marges par défaut */
   padding: 0; /* Annuler les espacements internes par défaut */
@@ -736,6 +736,8 @@ p {
   font-family: var(--font-shrikhand);
   color: white;
   font-weight: 400;
+  display: flex;
+  align-items: end;
 }
 .footer__container {
   display: flex;
@@ -778,11 +780,11 @@ p {
     flex-direction: row-reverse;
     gap: 16px;
     height: 54px;
-    align-items: end;
   }
   .footer__links {
     flex-direction: row;
     gap: 7px;
+    align-items: end;
   }
 }
 /****************version tablette*****************/
@@ -791,13 +793,16 @@ p {
     padding-top: 30px;
     padding-bottom: 30px;
   }
+  .footer__title {
+    font-size: 14px;
+  }
   .footer__container {
     flex-direction: row-reverse;
     height: 54px; /*114px - (30px*2)*/
-    align-items: end;
   }
   .footer__links {
     flex-direction: row;
+    align-items: end;
   }
 }
 /* Définir les règles de l'animation pour que le coeur se charge progressivement */
